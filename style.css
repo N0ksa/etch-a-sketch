@@ -11,3 +11,22 @@ body{
     align-items: center;
     background-color: #494d5f;
 }
+
+
+.container{
+    background-color: #e5eaf5;
+    width: 500px;
+    height: 500px;
+
+
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.container .pixel{
+   
+    background-color: aqua;
+    border: 0.2px solid black;
+}

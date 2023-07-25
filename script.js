@@ -8,5 +8,11 @@ for (let i = 0; i < 16; i++){
         pixel.style.height = 500/16 + "px";
         canvas.appendChild(pixel);
     }
-
 }
+
+const pixels = document.querySelectorAll(".pixel");
+pixels.forEach(pixel => {
+    pixel.addEventListener("mouseover", () =>{
+        pixel.style.backgroundColor = "black";
+    })
+})
