@@ -5,13 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch a Sketch</title>
     <link rel="stylesheet" href="./style.css">
-    
+
 </head>
-<body>
-    <div class="container">
+<body>   
+
+    <div class="game">
+        <h1>Etch a Sketch</h1>
+        <div class="container">
+        
+        </div>
+        
+        <div class="controls">
+            <button id="clear">CLEAR</button>
+            <button id="random">RANDOM</button>
+            <button id="pen">PEN</button>
+            <button id="eraser">ERASER</button>
+            <button id="border">HIDE GRID</button>
+            <div id="colorP">
+                <label for="Color">Pick a color</label>
+                <input type="color" id="colorPicker" name="Color" value="#845BB3">
+            </div>
+
+            <div id="slider">
+                <label for="pixelNumber">Pixel size</label>
+                <input type="range" name="pixelNumber" id="pixelNumber" min="8" max="64" step="8">
+                <p id="grid">32x32</p>
+            </div>
+            
+            
+        </div> 
 
     </div>
 
+
+    
 
 
 

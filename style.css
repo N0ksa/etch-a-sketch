@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lumanosimo&display=swap');
+
+:root{
+    --canvasSize: 500;
+}
+
+
+
 *{
     padding: 0;
     margin: 0;
@@ -6,27 +14,76 @@
 
 body{
     height: 100vh;
+    font-family: 'Lumanosimo', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #494d5f;
+
 }
 
 
+.game{
+    text-align: center;
+}
+
+.game h1{
+    color: #E5EAF5;
+    background-color: #845BB3;
+    padding: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 5px 5px 10px black;
+}
+
 .container{
     background-color: #e5eaf5;
-    width: 500px;
-    height: 500px;
+    width: calc(var(--canvasSize) * 1px);
+    height: calc(var(--canvasSize) * 1px);
 
 
 
     display: flex;
     flex-wrap: wrap;
 
+    box-shadow: 5px 5px 10px black;
+
 }
 
 .container .pixel{
    
-    background-color: aqua;
+    background-color: #FAF9F6;
     border: 0.2px solid black;
+}
+
+.controls{
+    padding: 20px;
+    background-color: #a0d2eb;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 5px 5px 10px black;
+}
+
+.controls button{
+    background-color: #845BB3;
+    padding: 10px 15px;
+    color: #E5EAF5;
+    border: 0;
+    border-radius: 5px 5px
+}
+
+.controls button:active{
+    transform: scale(1.1);
+}
+
+.controls button:hover{
+    background-color: #7744d6;
+}
+
+#colorP{
+    margin: 20px;
+}
+
+#grid{
+    display: inline;
 }

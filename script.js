@@ -4,12 +4,18 @@ const eraserButton = document.getElementById("eraser");
 const penButton = document.getElementById("pen");
 const randomButton = document.getElementById("random");
 const colorPicker = document.getElementById("colorPicker");
+const pixelNumber = document.getElementById("pixelNumber");
+const pixelNumberDisplay = document.getElementById("grid");
+const gridButton = document.getElementById("border");
 
+
+const root = document.querySelector(":root");
 
 let sizeOfCanvas = 32;
 let pixelColor = "dimgray";
 
 drawCanvas();
+
 clearButton.addEventListener("click", () => {
     deleteCanvas();
     drawCanvas();
@@ -18,7 +24,6 @@ clearButton.addEventListener("click", () => {
 
 eraserButton.addEventListener("click", () =>{
     pixelColor = "#FAF9F6";
-    console.log(pixelColor);
 })
 
 penButton.addEventListener("click", () => {
@@ -27,30 +32,39 @@ penButton.addEventListener("click", () => {
 
 randomButton.addEventListener("click", () => {
     pixelColor = "rgb(" + `${Math.floor((Math.random() * 255))}, ${Math.floor((Math.random() * 255))}, ${Math.floor((Math.random() * 255))}` + ")"; 
-    console.log(pixelColor);
+    
 })
 
 colorPicker.addEventListener("input", (e) => {
     pixelColor = e.target.value;
 })
 
+pixelNumber.addEventListener("input", (e)=> {
+    sizeOfCanvas = e.target.value;
+    pixelNumberDisplay.textContent = e.target.value + "x" + e.target.value;
+    deleteCanvas();
+    drawCanvas();
+})
 
 
-
-
-
-
-
+gridButton.addEventListener("click", () => {
+    console.log(1);
+    pixels.forEach(pixel => {
+        pixel.style.border = 0;
+    })
+})
 
 
 
 
 function drawCanvas(){
+
+    let size = getComputedStyle(root).getPropertyValue("--canvasSize");
     for (let i = 0; i < sizeOfCanvas * sizeOfCanvas; i++){
         const pixel = document.createElement("div");
         pixel.classList.add("pixel");
-        pixel.style.width = 500/sizeOfCanvas + "px";
-        pixel.style.height = 500/sizeOfCanvas + "px";
+        pixel.style.width = size/sizeOfCanvas + "px";
+        pixel.style.height = size/sizeOfCanvas + "px";
         canvas.appendChild(pixel);
     }
 
