@@ -1,21 +1,38 @@
 const canvas = document.querySelector(".container");
 const clearButton = document.getElementById("clear");
+const eraserButton = document.getElementById("eraser");
+const penButton = document.getElementById("pen");
+const randomButton = document.getElementById("random");
+const colorPicker = document.getElementById("colorPicker");
 
 
-let sizeOfCanvas = 16;
-let pixelColor = "black";
+let sizeOfCanvas = 32;
+let pixelColor = "dimgray";
 
 drawCanvas();
-
-
-
 clearButton.addEventListener("click", () => {
-    console.log();
     deleteCanvas();
     drawCanvas();
    
 })
 
+eraserButton.addEventListener("click", () =>{
+    pixelColor = "#FAF9F6";
+    console.log(pixelColor);
+})
+
+penButton.addEventListener("click", () => {
+    pixelColor = "dimgray";
+})
+
+randomButton.addEventListener("click", () => {
+    pixelColor = "rgb(" + `${Math.floor((Math.random() * 255))}, ${Math.floor((Math.random() * 255))}, ${Math.floor((Math.random() * 255))}` + ")"; 
+    console.log(pixelColor);
+})
+
+colorPicker.addEventListener("input", (e) => {
+    pixelColor = e.target.value;
+})
 
 
 
