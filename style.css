@@ -2,6 +2,7 @@
 
 :root{
     --canvasSize: 500;
+    --pixel-border-width: 0.1;
 }
 
 
@@ -13,10 +14,11 @@
 }
 
 body{
-    height: 100vh;
-    font-family: 'Lumanosimo', cursive;
+    
+    margin: 50px 0px;
     display: flex;
     justify-content: center;
+    font-family: 'Lumanosimo', cursive;
     align-items: center;
     background-color: #494d5f;
 
@@ -50,10 +52,14 @@ body{
 
 }
 
+.container:hover{
+    
+}
 .container .pixel{
    
     background-color: #FAF9F6;
-    border: 0.2px solid black;
+    border: calc(var(--pixel-border-width) * 1px) solid black;
+
 }
 
 .controls{
@@ -82,8 +88,45 @@ body{
 
 #colorP{
     margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 #grid{
     display: inline;
 }
+
+.controls #colorP #colorPicker{
+   appearance: none;
+   -moz-appearance: none;
+   -webkit-appearance: none;
+   width: 40px;
+   height: 40px;
+   border: none;
+   cursor: pointer;
+   border-radius: 50%;
+}
+
+.controls #colorP #colorPicker::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+.controls #colorP #colorPicker::-webkit-color-swatch {
+	border: none;
+    border-radius: 50%;
+}
+
+#me{
+    z-index: -1;
+    position: fixed;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+@media(max-width:800px){
+
+}
+

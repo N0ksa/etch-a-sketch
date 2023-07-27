@@ -52,14 +52,15 @@ gridButton.addEventListener("click", () => {
         
     if (grid){
         gridButton.textContent = "SHOW GRID";
+        root.style.setProperty("--pixel-border-width", 0);
         grid = false;
         pixels.forEach(pixel => {
             pixel.style.border = 0;
         })
     }else{
         gridButton.textContent = "HIDE GRID";
+        root.style.setProperty("--pixel-border-width", 0.1);
         grid = true;
-        console.log(grid);
         pixels.forEach(pixel => {
             pixel.style.border = "1px solid black";
         })
