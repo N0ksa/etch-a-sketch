@@ -7,19 +7,21 @@ const colorPicker = document.getElementById("colorPicker");
 const pixelNumber = document.getElementById("pixelNumber");
 const pixelNumberDisplay = document.getElementById("grid");
 const gridButton = document.getElementById("border");
-
+let pixels;
 
 const root = document.querySelector(":root");
 
 let sizeOfCanvas = 32;
 let pixelColor = "dimgray";
+let grid = true;
 
 drawCanvas();
 
+
 clearButton.addEventListener("click", () => {
-    deleteCanvas();
-    drawCanvas();
-   
+   pixels.forEach(pixel => {
+    pixel.style.backgroundColor = "#FAF9F6";
+   })
 })
 
 eraserButton.addEventListener("click", () =>{
@@ -46,13 +48,25 @@ pixelNumber.addEventListener("input", (e)=> {
     drawCanvas();
 })
 
-
 gridButton.addEventListener("click", () => {
-    console.log(1);
-    pixels.forEach(pixel => {
-        pixel.style.border = 0;
-    })
+        
+    if (grid){
+        gridButton.textContent = "SHOW GRID";
+        grid = false;
+        pixels.forEach(pixel => {
+            pixel.style.border = 0;
+        })
+    }else{
+        gridButton.textContent = "HIDE GRID";
+        grid = true;
+        console.log(grid);
+        pixels.forEach(pixel => {
+            pixel.style.border = "1px solid black";
+        })
+    }
+
 })
+
 
 
 
@@ -68,13 +82,12 @@ function drawCanvas(){
         canvas.appendChild(pixel);
     }
 
-    const pixels = document.querySelectorAll(".pixel");
+    pixels = document.querySelectorAll(".pixel");
     pixels.forEach(pixel => {
     pixel.addEventListener("mouseover", () => {
         pixel.style.backgroundColor = pixelColor;
         })
-    })
-
+    })    
 }
 
 
@@ -82,4 +95,7 @@ function deleteCanvas(){
     while(canvas.firstChild){
         canvas.removeChild(canvas.lastChild);
     }
+
+    removeEventListener("mouseover", pixels);
+
 }
